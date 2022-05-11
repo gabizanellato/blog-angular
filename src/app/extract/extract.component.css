@@ -1,0 +1,30 @@
+.title{
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 16px;
+}
+
+.table{
+  text-align: center;
+  margin: 0 auto;
+  background-color: #fff;
+  box-shadow: 0 0 8px rgba(0,0,0,0.1)
+}
+
+.table__header{
+  color: var(--primary)
+}
+
+.table__content{
+  padding: 10px;
+  border-bottom: 2px solid
+}
+
+.table__line{
+  margin-bottom: 10px;
+  border-radius: 4px;
+}
+
+.table__line:last-child .table__content{
+  border-bottom: none;
+}

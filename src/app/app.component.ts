@@ -11,7 +11,4 @@ export class AppComponent {
 
   constructor(private service: AlltransfersService){}
 
-  transferir($event){
-    this.service.addNewTransfer($event)
-  }
 }

@@ -1,3 +1,4 @@
+import { Transfer } from './../models/transfers.model';
 import { AlltransfersService } from './../services/alltransfers.service';
 import { Component, OnInit, Input } from '@angular/core';
 
@@ -14,7 +15,14 @@ export class ExtractComponent implements OnInit {
 
   ngOnInit() {
     // o valor do get é atribuido ao array local de transferencia
-    this.transfers = this.service.transfers
+    // this.transfers = this.service.transfers
+
+    // requisição API
+    this.service.transfersList().subscribe((transfers: Transfer[]) => {
+      console.table(transfers)
+      this.transfers = transfers;
+    })
+    //subscribe - escrever a resposta desse metodo
   }
 
 }

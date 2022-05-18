@@ -1,4 +1,7 @@
+import { HttpClient } from '@angular/common/http';
 import { Injectable } from '@angular/core';
+import { Observable } from 'rxjs';
+import { Transfer } from '../models/transfers.model'
 
 @Injectable({
   providedIn: 'root'
@@ -7,8 +10,9 @@ import { Injectable } from '@angular/core';
 export class AlltransfersService {
 
   transferList: any [] //tipo array
+  private url = "http://localhost:3000/transferencias" // API
 
-  constructor() {
+  constructor(private httpClient: HttpClient) {
     this.transferList = []
   }
 
@@ -16,10 +20,16 @@ export class AlltransfersService {
     return this.transferList
   }
 
-  addNewTransfer(transfer: any){
-    this.addDate(transfer)
-    this.transferList.push(transfer);
+  transfersList(): Observable<Transfer[]>{
+    return this.httpClient.get<Transfer[]>(this.url) // chamando API
   }
+
+  addNewTransfer(transfer: Transfer): Observable<Transfer>{
+    this.addDate(transfer)
+
+    return this.httpClient.post<Transfer>(this.url, transfer)
+  }
+
 
   private addDate(transfer: any){
     transfer.data = new Date

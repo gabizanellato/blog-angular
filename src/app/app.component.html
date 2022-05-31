@@ -1,4 +1,10 @@
 <!-- recebendo valor através do evento e propagando método-->
-<app-new-transfer></app-new-transfer>
+ <!-- <app-new-transfer></app-new-transfer> -->
+<header>
+  <a routerLink="extract">Bytebank</a>
+  <a routerLink="new-transfer" routerLinkActive="active">Nova Transferencia</a>
+</header>
 
-<app-extract></app-extract>
+<main>
+  <router-outlet></router-outlet>
+</main>
